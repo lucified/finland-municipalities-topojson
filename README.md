@@ -7,7 +7,7 @@ has a `properties` object with `code` (string id) and `name` fields.
 
 ## Usage
 
-Convert the TopoJSON to GeoJSON using (topojson)[https://github.com/topojson/topojson]:
+Convert the TopoJSON to GeoJSON using [topojson](https://github.com/topojson/topojson):
 
 ```js
 import { feature } from 'topojson';
