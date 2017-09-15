@@ -16,6 +16,8 @@ Convert the TopoJSON to GeoJSON using [topojson](https://github.com/topojson/top
 ```js
 import { feature } from 'topojson';
 
+const municipalitiesTopoJSON = require('./finland-municipalities-topojson.json');
+
 const geoJSON = feature(
   municipalitiesTopoJSON,
   municipalitiesTopoJSON.objects.kuntarajat,
@@ -40,6 +42,8 @@ The centroids were generated with:
 ```js
 import { geoCentroid } from 'd3-geo';
 import { feature } from 'topojson';
+
+const municipalitiesTopoJSON = require('./finland-municipalities-topojson.json');
 
 const geojson = feature(
   municipalitiesTopoJSON,
