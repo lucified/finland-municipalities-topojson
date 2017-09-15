@@ -7,6 +7,8 @@ size. The contents are up to date as of September 2017.
 The municipalities are inside an object called `kuntarajat`. Each municipality
 has a `properties` object with `code` (string id) and `name` fields.
 
+Included is also [a GeoJSON of the municipalities' centroids](finland-municipalities-centroids.json).
+
 ## Usage
 
 Convert the TopoJSON to GeoJSON using [topojson](https://github.com/topojson/topojson):
@@ -33,3 +35,26 @@ topomerge kuntarajat=kuntarajat -k '["476", "174"].indexOf(d.properties.code) > 
 
 Once merged, the `properties` object (with `code` and `name`) needed to be added
 to the combined shapes manually.
+
+The centroids were generated with:
+```js
+import { geoCentroid } from 'd3-geo';
+import { feature } from 'topojson';
+
+const geojson = feature(
+  municipalitiesTopoJSON,
+  municipalitiesTopoJSON.objects.kuntarajat,
+);
+
+JSON.stringify({
+  type: 'FeatureCollection',
+  features: geojson.features.map(f => ({
+    type: 'Feature',
+    id: f.properties.code,
+    geometry: {
+      type: 'Point',
+      coordinates: geoCentroid(f),
+    },
+  })),
+}),
+```
