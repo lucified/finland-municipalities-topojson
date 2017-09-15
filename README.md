@@ -2,7 +2,7 @@
 
 The municipalities list is up to date as of September 2017.
 
-The municipalities are inside an object called `kuntarajat`. Each municipality
+The [municipalities](finland-municipalities-topojson.json) are inside an object called `kuntarajat`. Each municipality
 has a `properties` object with `code` (string id) and `name` fields.
 
 ## Usage
