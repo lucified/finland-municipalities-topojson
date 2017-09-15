@@ -1,8 +1,10 @@
 # Finland's municipalities in TopoJSON format
 
-The municipalities list is up to date as of September 2017.
+This repository contains [Finland's municipalities in TopoJSON format](finland-municipalities-topojson.json).
+The geometry was somewhat simplified in order to decrease the resulting file
+size. The contents are up to date as of September 2017.
 
-The [municipalities](finland-municipalities-topojson.json) are inside an object called `kuntarajat`. Each municipality
+The municipalities are inside an object called `kuntarajat`. Each municipality
 has a `properties` object with `code` (string id) and `name` fields.
 
 ## Usage
